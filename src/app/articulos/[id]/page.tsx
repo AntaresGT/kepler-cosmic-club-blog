@@ -34,13 +34,16 @@ async function Articulo({
     const { id } = params
     const articulo = await consultar_datos_articulo(id as string)
     return (
-        <main className="w-full container m-auto p-4 md:p-0">
+        <main className="w-full container m-auto p-4 md:p-0 md:mt-6">
             <div className="grid grid-cols-1 md:grid-cols-2">
                 <article className="w-full">
-                    <h2 className="text-3xl text-bold mb-2">{articulo?.title}</h2>
-                    <p className="text-gray-400 mb-1">{articulo?.createdDate}</p>
-                    <p className="text-bold mb-6">Autor: {articulo?.createdBy}</p>
-                    <div dangerouslySetInnerHTML={{ __html: articulo?.htmlContent ?? "" }}></div>
+                    <div className="w-full border-b-2 border-b-gray-300">
+                        <h2 className="text-3xl text-bold mb-2">{articulo?.title}</h2>
+                        <p className="text-gray-400 mb-1">{articulo?.createdDate}</p>
+                        <p className="text-bold mb-6">Autor: {articulo?.createdBy}</p>
+                    </div>
+
+                    <div className="mt-6" dangerouslySetInnerHTML={{ __html: articulo?.htmlContent ?? "" }}></div>
                 </article>
                 <aside className="w-full">
 
