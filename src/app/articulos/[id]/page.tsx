@@ -2,6 +2,7 @@ import './estilos.css'
 import Link from 'next/link'
 import dayjs from 'dayjs'
 import { aaxios } from "@/utileria"
+import { BotonesCompartir } from '@/secciones'
 
 interface Etiquetas {
     _entityName: string;
@@ -71,6 +72,10 @@ async function Articulo({
                                     ))
                                 }
                             </div>
+                            <BotonesCompartir
+                                url={`articulos/${articulo?.id}`}
+                                className={"mt-2 mb-3"}
+                            />
                         </div>
 
                         <div className="mt-6 contenido-blog" dangerouslySetInnerHTML={{ __html: articulo?.htmlContent ?? "" }}></div>
