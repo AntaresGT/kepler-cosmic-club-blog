@@ -1,7 +1,6 @@
 "use client"
 
 import {
-    Share2,
     Facebook,
     Twitter,
     Mail,
@@ -67,7 +66,7 @@ function BotonesCompartir({ url, className }: { url: string, className?: string 
                     return (
                         <a
                             key={index}
-                            href={red.url + window.location.href + url}
+                            href={red.url + window.location.href}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="flex items-center justify-center w-8 h-8 rounded-full bg-gray-100 hover:bg-gray-200"
