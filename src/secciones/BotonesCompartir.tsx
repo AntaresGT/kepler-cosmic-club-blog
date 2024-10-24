@@ -53,7 +53,7 @@ function BotonesCompartir({ url, className }: { url: string, className?: string 
                             <button
                                 key={index}
                                 onClick={() => {
-                                    navigator.clipboard.writeText(window.location.href + url)
+                                    navigator.clipboard.writeText(window.location.href)
                                     alert("Enlace copiado al portapapeles")
                                 }}
                                 className="flex items-center justify-center w-8 h-8 rounded-full bg-gray-100 hover:bg-gray-200"
