@@ -22,6 +22,8 @@ async function consultar_articulos(maxArticulos: number): Promise<Articulo[]> {
             }
         })
     } catch (ex) {
+        console.error("Error al consultar articulos")
+        console.error(ex)
         return []
     }
 }

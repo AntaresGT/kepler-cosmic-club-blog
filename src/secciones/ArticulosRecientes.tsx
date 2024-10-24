@@ -31,6 +31,8 @@ async function consultar_articulos(maxArticulos: number): Promise<Articulo[]> {
             }
         })
     } catch (ex) {
+        console.error("Error al consultar articulos recientes")
+        console.error(ex)
         return []
     }
 }

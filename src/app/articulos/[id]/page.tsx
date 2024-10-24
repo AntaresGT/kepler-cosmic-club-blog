@@ -36,6 +36,8 @@ const consultar_datos_articulo = async (id: string): Promise<Articulo | null> =>
             relatedPosts: datos.relatedPosts ?? []
         }
     } catch (ex) {
+        console.error("Error al consultar articulo")
+        console.error(ex)
         return null
     }
 }
