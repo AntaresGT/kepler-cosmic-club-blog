@@ -6,7 +6,6 @@ import {
     Copy
 } from 'lucide-react';
 import WhatsAppIcon from '@/iconos/Whatsappicon.svg';
-import { usePathname } from 'next/navigation'
 
 const Iconos: any = {
     facebook: Facebook,
@@ -42,7 +41,6 @@ const redesSociales = [
 ];
 
 function BotonesCompartir({ url, className }: { url: string, className?: string }) {
-    const pathname = usePathname()
     return (
         <>
             <div className={`flex flex-row gap-2 ${className ?? ""}`}>
@@ -67,7 +65,7 @@ function BotonesCompartir({ url, className }: { url: string, className?: string 
                     return (
                         <a
                             key={index}
-                            href={red.url + window.location.href + pathname}
+                            href={red.url + window.location.href}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="flex items-center justify-center w-8 h-8 rounded-full bg-gray-100 hover:bg-gray-200"
