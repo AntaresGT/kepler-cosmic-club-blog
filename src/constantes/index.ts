@@ -6,7 +6,7 @@ const RUTAS_WEB = [
     },
     {
         texto: 'Artículos',
-        ruta: 'articulos'
+        ruta: '/articulos'
     },
     {
         texto: 'Sobre Nosotros',

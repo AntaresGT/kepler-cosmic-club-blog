@@ -42,6 +42,16 @@
     line-height: 1.8; /* Facilita la lectura */
   }
   
+  .contenido-blog p {
+    text-wrap: break-word; /* Evitar que los párrafos largos se salgan del contenedor */
+    max-width: fit-content;
+  }
+
+  .contenido-blog p a {
+    text-wrap: break-word; /* Evitar que los párrafos largos se salgan del contenedor */
+    max-width: fit-content;
+  }
+
   /* Reseteo de estilos de listas para usar los valores por defecto del navegador */
   .contenido-blog ul,
   .contenido-blog ol {
@@ -54,12 +64,14 @@
   .contenido-blog ol li {
     margin-bottom: 0.5rem;
   }
-  
-  /* Otros estilos que necesitas en modo oscuro */
+
   .contenido-blog a {
     color: #63b3ed; /* Color azul claro para enlaces */
     text-decoration: underline;
-  }
+    word-wrap: break-word; /* Permite que el enlace se rompa y ajuste a varias líneas */
+    overflow-wrap: break-word; /* Compatibilidad adicional para navegadores más antiguos */
+    white-space: normal; /* Asegura que el enlace no se mantenga en una sola línea */
+}
   
   .contenido-blog a:hover {
     color: #4299e1; /* Enlace más oscuro al pasar el mouse */
