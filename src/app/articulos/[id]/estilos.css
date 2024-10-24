@@ -1,0 +1,103 @@
+@import url('https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css');
+
+/* Bloques de código */
+.contenido-blog pre {
+  background-color: #2d3748; /* Fondo oscuro para el bloque de código */
+  padding: 1rem;
+  border-radius: 8px;
+  overflow-x: auto;
+  margin-bottom: 1.5rem;
+}
+
+.contenido-blog code {
+  font-family: 'Fira Code', monospace; /* Fuente monoespaciada */
+  color: #f8fafc; /* Texto claro */
+  background-color: #2d3748;
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+}
+
+/* Inline code */
+.contenido-blog p code {
+  padding: 0.2rem 0.4rem;
+  background-color: #4a5568; /* Fondo más suave para código inline */
+  border-radius: 4px;
+}
+
+/* Estilos personalizados para las fórmulas */
+.contenido-blog .katex-display {
+  margin: 1rem 0;
+  text-align: center; /* Centrar fórmulas grandes */
+}
+
+.contenido-blog .katex {
+  font-size: 1.1rem; /* Aumentar el tamaño para visibilidad */
+}
+
+
+/* Estilos para el contenido del blog */
+.contenido-blog {
+    /* Asegurando que las fuentes sean legibles en modo oscuro */
+    color: #e2e8f0; /* Texto claro en fondo oscuro */
+    line-height: 1.8; /* Facilita la lectura */
+  }
+  
+  /* Reseteo de estilos de listas para usar los valores por defecto del navegador */
+  .contenido-blog ul,
+  .contenido-blog ol {
+    list-style: initial; /* Habilitar los estilos por defecto */
+    padding-left: 40px; /* Añadir el padding por defecto de listas */
+    margin-bottom: 1rem;
+  }
+  
+  .contenido-blog ul li,
+  .contenido-blog ol li {
+    margin-bottom: 0.5rem;
+  }
+  
+  /* Otros estilos que necesitas en modo oscuro */
+  .contenido-blog a {
+    color: #63b3ed; /* Color azul claro para enlaces */
+    text-decoration: underline;
+  }
+  
+  .contenido-blog a:hover {
+    color: #4299e1; /* Enlace más oscuro al pasar el mouse */
+  }
+  
+  .contenido-blog blockquote {
+    border-left: 4px solid #4299e1; /* Línea decorativa para blockquotes */
+    padding-left: 1rem;
+    color: #a0aec0; /* Texto en blockquotes más suave */
+    margin: 1.5rem 0;
+    font-style: italic;
+  }
+  
+  .contenido-blog img {
+    max-width: 100%; /* Imágenes responsivas */
+    height: auto;
+    margin: 1rem 0; /* Separación de las imágenes */
+  }
+  
+  .contenido-blog table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1.5rem;
+  }
+  
+  .contenido-blog th,
+  .contenido-blog td {
+    border: 1px solid #2d3748; /* Bordes para tablas */
+    padding: 0.75rem;
+    text-align: left;
+  }
+  
+  .contenido-blog th {
+    background-color: #2d3748; /* Fondo oscuro para encabezados de tablas */
+    color: #e2e8f0; /* Texto claro */
+  }
+  
+  .contenido-blog td {
+    background-color: #1a202c; /* Fondo oscuro para celdas de tablas */
+  }
+  

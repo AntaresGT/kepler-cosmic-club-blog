@@ -1,5 +1,6 @@
 import Link from "next/link"
 import { RUTAS_WEB } from "@/constantes"
+import KeplerLogo from '@/iconos/kepler-logo.jpg'
 function Pie() {
     return (
         <footer className="w-full bg-gray-950 p-4 md:p-0 mt-10 border-t border-gray-800">
@@ -28,7 +29,7 @@ function Pie() {
                 <h3 className="text-xl font-bold mb-4 text-center">Explora el universo con</h3>
                 <div className="flex justify-center space-x-4 overflow-x-auto pb-4">
                     <img
-                        src="https://pps.whatsapp.net/v/t61.24694-24/410913303_1015298553101308_81550429638801787_n.jpg?ccb=11-4&oh=01_Q5AaIAOYPc0EmzL2QwlVbL_AISwrgk-860X4ZEeYxj_7n931&oe=671876D5&_nc_sid=5e03e0&_nc_cat=106"
+                        src={KeplerLogo.src}
                         alt="Instagram Logo Kepler Cosmic Club"
                         className="rounded-full w-60 h-60 border-4 border-blue-600 cursor-pointer"
                     />

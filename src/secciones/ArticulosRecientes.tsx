@@ -1,6 +1,9 @@
 import Link from "next/link"
 import { aaxios } from "@/utileria"
 import dayjs from "dayjs"
+import {
+    BotonCompartir
+} from '@/componentes'
 
 interface PropsArticulosRecientes {
     /** Indica la cantidad de articulos que consultara desde la base de datos */
@@ -18,7 +21,7 @@ interface Articulo {
 async function consultar_articulos(maxArticulos: number): Promise<Articulo[]> {
 
     try {
-        const datos = await (await aaxios.get(`/entities/Post?limit=${maxArticulos}&sort=-createdDate`)).data
+        const datos = await (await aaxios.get(`/entities/Post?fetchPlan=posts-list-base&limit=${maxArticulos}&sort=-createdDate`)).data
         return datos.map((articulo: any) => {
             return {
                 id: articulo.id,
@@ -36,12 +39,12 @@ async function ArticulosRecientes({ maxArticulos }: PropsArticulosRecientes) {
     const articulos = await consultar_articulos(maxArticulos)
     return (
         <section className="w-full">
-            <h3 className="font-semibold text-2xl">Artículos recientes</h3>
+            <h3 className="font-semibold text-2xl">Publicaciones recientes</h3>
             <div className="mt-5 grid grid-cols-1 gap-10 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
                 {
                     articulos.map((articulo, indice) => {
                         return (
-                            <article key={`${articulo.titulo}-${indice}`} className="border border-blue-500 flex group relative overflow-hidden transition-transform hover:scale-105 rounded-md">
+                            <article key={`${articulo.titulo}-${indice}`} className="border border-blue-500 flex flex-col group relative overflow-hidden transition-transform hover:scale-105 rounded-md">
                                 <Link
                                     href={`/articulos/${articulo.id}`}
                                     className="flex flex-col"
@@ -57,6 +60,7 @@ async function ArticulosRecientes({ maxArticulos }: PropsArticulosRecientes) {
                                         <p className="text-gray-400 mt-2">{articulo.fecha}</p>
                                     </div>
                                 </Link>
+                                <BotonCompartir hacerRelative={false} shareUrl={`articulos/${articulo.id}`} />
                             </article>
                         )
                     })

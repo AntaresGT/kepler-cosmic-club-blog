@@ -1,5 +1,6 @@
 import Link from "next/link"
 import { EstrellasFondo } from "@/secciones"
+import KeplerLogo from '@/iconos/kepler-logo.jpg'
 
 function Acerca() {
     return (
@@ -31,7 +32,7 @@ function Acerca() {
                         </Link>
                     </div>
                     <img
-                        src="https://pps.whatsapp.net/v/t61.24694-24/410913303_1015298553101308_81550429638801787_n.jpg?ccb=11-4&oh=01_Q5AaIAOYPc0EmzL2QwlVbL_AISwrgk-860X4ZEeYxj_7n931&oe=671876D5&_nc_sid=5e03e0&_nc_cat=106"
+                        src={KeplerLogo.src}
                         alt="Instagram Logo Kepler Cosmic Club"
                         className="rounded-full w-60 h-60 border-4 border-blue-200 cursor-pointer mb-10 hidden md:block"
                     />
