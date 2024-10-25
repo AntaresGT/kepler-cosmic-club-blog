@@ -7,6 +7,7 @@ import {
 } from 'lucide-react';
 import WhatsAppIcon from '@/iconos/Whatsappicon.svg';
 import { LINKS_COMPARTIR_REDES_SOCIALES } from '@/constantes'
+import { useEffect, useState } from 'react';
 
 const Iconos: any = {
     facebook: Facebook,
@@ -19,6 +20,13 @@ const Iconos: any = {
 };
 
 function BotonesCompartir({ url, className }: { url: string, className?: string }) {
+
+    const [urlCompartir, setUrlCompartir] = useState("");
+
+    useEffect(() => {
+        setUrlCompartir(window.location.href);
+    }, []);
+
     return (
         <>
             <div className={`flex flex-row gap-2 ${className ?? ""}`}>
@@ -30,7 +38,7 @@ function BotonesCompartir({ url, className }: { url: string, className?: string 
                             <button
                                 key={index}
                                 onClick={() => {
-                                    navigator.clipboard.writeText(window.location.href)
+                                    navigator.clipboard.writeText(urlCompartir)
                                     alert("Enlace copiado al portapapeles")
                                 }}
                                 className="flex items-center justify-center w-8 h-8 rounded-full bg-gray-100 hover:bg-gray-200"
@@ -43,7 +51,7 @@ function BotonesCompartir({ url, className }: { url: string, className?: string 
                     return (
                         <a
                             key={index}
-                            href={red.url + window.location.href}
+                            href={red.url + urlCompartir}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="flex items-center justify-center w-8 h-8 rounded-full bg-gray-100 hover:bg-gray-200"

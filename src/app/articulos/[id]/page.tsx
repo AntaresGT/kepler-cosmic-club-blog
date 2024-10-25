@@ -1,3 +1,4 @@
+import type { Metadata, ResolvingMetadata } from "next"
 import './estilos.css'
 import Link from 'next/link'
 import dayjs from 'dayjs'
@@ -40,6 +41,39 @@ const consultar_datos_articulo = async (id: string): Promise<Articulo | null> =>
         console.error("Error al consultar articulo")
         console.error(ex)
         return null
+    }
+}
+
+type PropsMetadata = {
+    params: Promise<{ id: string }>
+}
+
+export async function generateMetadata(
+    { params }: PropsMetadata,
+    parent: ResolvingMetadata
+): Promise<Metadata> {
+    // read route params
+    const id = (await params).id
+
+    // fetch data
+    const articulo = await consultar_datos_articulo(id)
+
+    // optionally access and extend (rather than replace) parent metadata
+    const previousImages = (await parent).openGraph?.images || []
+
+    return {
+        title: "Kepler Cosmic Club - " + articulo?.title,
+        description: articulo?.title,
+        openGraph: {
+            images: [
+                {
+                    url: articulo?.image ?? "https://blog-kepler.escod.com.gt/_next/static/media/kepler-logo.443f4e5c.jpg",
+                    width: 800,
+                    height: 600,
+                    alt: articulo?.title
+                }
+            ],
+        },
     }
 }
 
