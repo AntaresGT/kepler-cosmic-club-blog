@@ -2,7 +2,7 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import dayjs from "dayjs"
 import { aaxios } from "@/utileria"
-import { PaginaSiguiente } from "@/secciones";
+import { PaginaSiguiente, BuscardorArticulo } from "@/secciones";
 
 interface Articulo {
     id: string;
@@ -48,7 +48,7 @@ async function consulta_normal(pagina: string, maxArticulos: number) {
 
 async function consulta_x_busqueda(busqueda: string) {
     const filtro: IFiltros = {
-        filter: {},
+        filter: { conditions: [] },
         fetchPlan: "posts-list-base"
     }
     filtro.filter.conditions?.push(
@@ -74,7 +74,7 @@ async function consulta_x_busqueda(busqueda: string) {
         }
     )
 
-    return (await aaxios.post(`/entities/Post/search?limit=10&sort=-createdDate`, filtro)).data
+    return (await aaxios.post(`/entities/Post/search`, filtro)).data
 }
 
 async function consultar_articulos(
@@ -86,15 +86,15 @@ async function consultar_articulos(
     try {
         let datos: any = []
 
-        if(tag){
+        if (tag) {
             datos = await consultar_x_etiqueta(tag as string)
         }
 
-        if(!tag && !busqueda){
+        if (!tag && !busqueda) {
             datos = await consulta_normal(pagina ?? "1", maxArticulos)
         }
 
-        if(busqueda){
+        if (busqueda) {
             datos = await consulta_x_busqueda(busqueda as string)
         }
 
@@ -118,14 +118,14 @@ async function Articulos({
 }: {
     searchParams?: { [key: string]: string | string[] | undefined }
 }) {
-
     const { tag, pagina, busqueda } = searchParams ?? {}
     const articulos = await consultar_articulos(10, tag as string, pagina as string, busqueda as string)
 
     return (
         <>
             <main className="w-full container m-auto p-4 md:p-0 mt-10 md:mb-72">
-                <h2 className="text-3xl text-bold mb-10">Descubre nuestras más recientes publicaciones</h2>
+                <h2 className="text-3xl text-bold mb-3">Descubre nuestras más recientes publicaciones</h2>
+                <BuscardorArticulo />
                 <section className="w-full grid grid-cols-1 md:grid-cols-2 justify-center items-center gap-6">
                     {articulos.map(articulo => (
                         <Link
@@ -153,7 +153,10 @@ async function Articulos({
                     </div>
                 }
                 {
-                    articulos.length > 0 && <PaginaSiguiente className="mt-6" />
+                    (
+                        (articulos.length > 0) &&
+                        ((busqueda == null) && (tag == null))
+                    ) && <PaginaSiguiente className="mt-6" />
                 }
             </main>
         </>

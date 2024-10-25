@@ -6,6 +6,7 @@ import { Pie } from "./Pie"
 import { EstrellasFondo } from './EstrellasFondo'
 import { BotonesCompartir } from "./BotonesCompartir"
 import { PaginaSiguiente } from "./PaginaSiguiente"
+import { BuscardorArticulo } from "./BuscadorArticulo"
 export {
     Encabezado,
     Banner,
@@ -14,5 +15,6 @@ export {
     Pie,
     EstrellasFondo,
     BotonesCompartir,
-    PaginaSiguiente
+    PaginaSiguiente,
+    BuscardorArticulo
 }
