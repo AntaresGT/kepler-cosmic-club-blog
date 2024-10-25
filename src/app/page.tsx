@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     openGraph: {
         images: [
             {
-                url: "https://media-gua1-1.cdn.whatsapp.net/v/t61.24694-24/455810019_1243179430357445_4985147591261018444_n.jpg?ccb=11-4&oh=01_Q5AaIAI8_-gTTjGQ3p6dfawsZA9j1uqHD3lFyV6r6jWMI9xz&oe=67211B6E&_nc_sid=5e03e0&_nc_cat=100",
+                url: "https://blog-kepler.escod.com.gt/_next/static/media/kepler-logo.443f4e5c.jpg",
                 width: 800,
                 height: 600,
                 alt: "Kepler Cosmic Club - Blog"
@@ -29,7 +29,7 @@ export default function Home() {
         <>
             <Banner />
             <main className="w-full container m-auto p-4 md:p-0">
-                <ArticulosRecientes maxArticulos={5} />
+                <ArticulosRecientes maxArticulos={4} />
             </main>
         </>
     );

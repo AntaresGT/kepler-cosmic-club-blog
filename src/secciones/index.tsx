@@ -5,6 +5,7 @@ import { ArticulosRecientes } from "./ArticulosRecientes"
 import { Pie } from "./Pie"
 import { EstrellasFondo } from './EstrellasFondo'
 import { BotonesCompartir } from "./BotonesCompartir"
+import { PaginaSiguiente } from "./PaginaSiguiente"
 export {
     Encabezado,
     Banner,
@@ -12,5 +13,6 @@ export {
     ArticulosRecientes,
     Pie,
     EstrellasFondo,
-    BotonesCompartir
+    BotonesCompartir,
+    PaginaSiguiente
 }

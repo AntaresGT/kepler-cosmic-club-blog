@@ -1,6 +1,8 @@
+import type { Metadata } from "next"
 import Link from "next/link"
 import dayjs from "dayjs"
 import { aaxios } from "@/utileria"
+import { PaginaSiguiente } from "@/secciones";
 
 interface Articulo {
     id: string;
@@ -9,10 +11,93 @@ interface Articulo {
     fecha: string;
 }
 
-async function consultar_articulos(maxArticulos: number): Promise<Articulo[]> {
+export const metadata: Metadata = {
+    title: "Kepler Cosmic Club - Artículos",
+    description: "Kepler Cosmic Club es un blog de ciencia y tecnología sobre astronomía.",
+    authors: [
+        {
+            name: "Kepler Cosmic Club",
+        }
+    ],
+    openGraph: {
+        images: [
+            {
+                url: "https://blog-kepler.escod.com.gt/_next/static/media/kepler-logo.443f4e5c.jpg",
+                width: 800,
+                height: 600,
+                alt: "Kepler Cosmic Club - Blog"
+            }
+        ]
+    }
+}
 
+interface IFiltros {
+    filter: {
+        conditions?: any[]
+    },
+    fetchPlan: string
+}
+
+async function consultar_x_etiqueta(tag: string) {
+    return (await aaxios.get(`/queries/Post/postByTag?tagName=${encodeURI(tag)}`)).data
+}
+
+async function consulta_normal(pagina: string, maxArticulos: number) {
+    return (await aaxios.get(`/entities/Post?fetchPlan=posts-list-base&limit=${maxArticulos}&sort=-createdDate&offset=${(parseInt(pagina) - 1) * maxArticulos}`)).data
+}
+
+async function consulta_x_busqueda(busqueda: string) {
+    const filtro: IFiltros = {
+        filter: {},
+        fetchPlan: "posts-list-base"
+    }
+    filtro.filter.conditions?.push(
+        {
+            group: "or",
+            conditions: [
+                {
+                    property: "name",
+                    operator: "contains",
+                    value: busqueda
+                },
+                {
+                    property: "title",
+                    operator: "contains",
+                    value: busqueda
+                },
+                {
+                    property: "htmlContent",
+                    operator: "contains",
+                    value: busqueda
+                }
+            ]
+        }
+    )
+
+    return (await aaxios.post(`/entities/Post/search?limit=10&sort=-createdDate`, filtro)).data
+}
+
+async function consultar_articulos(
+    maxArticulos: number,
+    tag?: string,
+    pagina?: string,
+    busqueda?: string
+): Promise<Articulo[]> {
     try {
-        const datos = await (await aaxios.get(`/entities/Post?fetchPlan=posts-list-base&limit=${maxArticulos}&sort=-createdDate`)).data
+        let datos: any = []
+
+        if(tag){
+            datos = await consultar_x_etiqueta(tag as string)
+        }
+
+        if(!tag && !busqueda){
+            datos = await consulta_normal(pagina ?? "1", maxArticulos)
+        }
+
+        if(busqueda){
+            datos = await consulta_x_busqueda(busqueda as string)
+        }
+
         return datos.map((articulo: any) => {
             return {
                 id: articulo.id,
@@ -28,9 +113,14 @@ async function consultar_articulos(maxArticulos: number): Promise<Articulo[]> {
     }
 }
 
-async function Articulos() {
+async function Articulos({
+    searchParams
+}: {
+    searchParams?: { [key: string]: string | string[] | undefined }
+}) {
 
-    const articulos = await consultar_articulos(20)
+    const { tag, pagina, busqueda } = searchParams ?? {}
+    const articulos = await consultar_articulos(10, tag as string, pagina as string, busqueda as string)
 
     return (
         <>
@@ -56,6 +146,15 @@ async function Articulos() {
                         </Link>
                     ))}
                 </section>
+                {
+                    articulos.length === 0 &&
+                    <div className="w-full flex justify-center mt-10">
+                        <p>No se encontraron más artículos</p>
+                    </div>
+                }
+                {
+                    articulos.length > 0 && <PaginaSiguiente className="mt-6" />
+                }
             </main>
         </>
     )

@@ -14,6 +14,29 @@ const RUTAS_WEB = [
     }
 ]
 
+const LINKS_COMPARTIR_REDES_SOCIALES = [
+    {
+        nombre: "Twitter",
+        icono: "twitter",
+        url: "https://twitter.com/intent/tweet?url="
+    },
+    {
+        nombre: "WhatsApp",
+        icono: "whatsapp",
+        url: "https://api.whatsapp.com/send?text="
+    },
+    {
+        nombre: "Correo electrónico",
+        icono: "mail",
+        url: "mailto:?body="
+    },
+    {
+        nombre: "Copiar enlace",
+        icono: "copy",
+        action: "copy"
+    }
+];
+
 const REDES_SOCIALES = [
     {
         nombre: 'WhatsApp',
@@ -30,5 +53,7 @@ const REDES_SOCIALES = [
 ]
 
 export {
-    RUTAS_WEB
+    RUTAS_WEB,
+    LINKS_COMPARTIR_REDES_SOCIALES,
+    REDES_SOCIALES
 }

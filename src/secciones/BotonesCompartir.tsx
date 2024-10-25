@@ -6,6 +6,7 @@ import {
     Copy
 } from 'lucide-react';
 import WhatsAppIcon from '@/iconos/Whatsappicon.svg';
+import { LINKS_COMPARTIR_REDES_SOCIALES } from '@/constantes'
 
 const Iconos: any = {
     facebook: Facebook,
@@ -17,34 +18,11 @@ const Iconos: any = {
     copy: Copy
 };
 
-const redesSociales = [
-    {
-        nombre: "Twitter",
-        icono: "twitter",
-        url: "https://twitter.com/intent/tweet?url="
-    },
-    {
-        nombre: "WhatsApp",
-        icono: "whatsapp",
-        url: "https://api.whatsapp.com/send?text="
-    },
-    {
-        nombre: "Correo electrónico",
-        icono: "mail",
-        url: "mailto:?body="
-    },
-    {
-        nombre: "Copiar enlace",
-        icono: "copy",
-        action: "copy"
-    }
-];
-
 function BotonesCompartir({ url, className }: { url: string, className?: string }) {
     return (
         <>
             <div className={`flex flex-row gap-2 ${className ?? ""}`}>
-                {redesSociales.map((red: any, index: number) => {
+                {LINKS_COMPARTIR_REDES_SOCIALES.map((red: any, index: number) => {
                     const Icono = Iconos[red.icono];
 
                     if(red.action === "copy") {
