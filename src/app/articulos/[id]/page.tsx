@@ -64,6 +64,9 @@ export async function generateMetadata(
     return {
         title: "Kepler Cosmic Club - " + articulo?.title,
         description: articulo?.title,
+        icons: {
+            icon: "/favicon.ico",
+        },
         openGraph: {
             images: [
                 {

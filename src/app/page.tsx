@@ -6,6 +6,9 @@ import {
 
 export const metadata: Metadata = {
     title: "Kepler Cosmic Club - Blog",
+    icons: {
+        icon: "/favicon.ico",
+    },
     description: "Kepler Cosmic Club es un blog de ciencia y tecnología sobre astronomía.",
     authors: [
         {

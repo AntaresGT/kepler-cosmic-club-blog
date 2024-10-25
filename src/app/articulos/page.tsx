@@ -14,6 +14,9 @@ interface Articulo {
 export const metadata: Metadata = {
     title: "Kepler Cosmic Club - Artículos",
     description: "Kepler Cosmic Club es un blog de ciencia y tecnología sobre astronomía.",
+    icons: {
+        icon: "/favicon.ico",
+    },
     authors: [
         {
             name: "Kepler Cosmic Club",
