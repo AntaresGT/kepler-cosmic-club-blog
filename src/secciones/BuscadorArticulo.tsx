@@ -8,11 +8,11 @@ function BuscardorArticulo() {
                 type="search"
                 name="busqueda"
                 placeholder="Buscar artículos"
-                className="w-full p-2 border border-slate-900 rounded-md bg-slate-700 checked:border-slate-950"
+                className="w-full p-2 rounded-s-md bg-slate-700 checked:border-slate-950"
             />
             <button
                 type="submit"
-                className="bg-blue-500 text-white p-2 rounded-md ml-2"
+                className="bg-slate-700 text-white p-2 rounded-e-md"
             >
                 <Search size={24} />
             </button>
