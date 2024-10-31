@@ -5,6 +5,8 @@ import {
     BotonCompartir
 } from '@/componentes'
 
+export const fetchCache = 'force-no-store'
+
 interface PropsArticulosRecientes {
     /** Indica la cantidad de articulos que consultara desde la base de datos */
     maxArticulos: number;

@@ -4,6 +4,8 @@ import dayjs from "dayjs"
 import { aaxios } from "@/utileria"
 import { PaginaSiguiente, BuscardorArticulo } from "@/secciones";
 
+export const fetchCache = 'force-no-store'
+
 interface Articulo {
     id: string;
     titulo: string;
