@@ -11,7 +11,7 @@ const aaxios = axios.create({
 
 aaxios.interceptors.request.use((config) => {
 
-    config.headers['Cache-Control'] = 'no-cache'
+    config.headers['Cache-Control'] = 'no-store'
     config.headers['Pragma'] = 'no-cache'
     config.headers['Expires'] = '0'
 
