@@ -6,7 +6,7 @@ import {
 } from '@/componentes'
 
 export const fetchCache = 'force-no-store'
-export const dynamic = 'force-dynamic'
+export const dynamic = 'force-static'
 
 interface PropsArticulosRecientes {
     /** Indica la cantidad de articulos que consultara desde la base de datos */
