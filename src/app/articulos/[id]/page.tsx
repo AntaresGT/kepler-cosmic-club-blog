@@ -5,7 +5,7 @@ import dayjs from 'dayjs'
 import { aaxios } from "@/utileria"
 import { BotonesCompartir } from '@/secciones'
 
-export const fetchCache = 'force-no-store'
+export const dynamic = 'force-dynamic'
 
 interface Etiquetas {
     _entityName: string;

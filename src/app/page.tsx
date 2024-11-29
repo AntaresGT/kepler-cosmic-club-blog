@@ -4,6 +4,8 @@ import {
     ArticulosRecientes
 } from '@/secciones'
 
+export const dynamic = 'force-dynamic'
+
 export const metadata: Metadata = {
     title: "Kepler Cosmic Club - Blog",
     icons: {
