@@ -6,6 +6,7 @@ import {
 } from '@/componentes'
 
 export const fetchCache = 'force-no-store'
+export const dynamic = 'force-dynamic'
 
 interface PropsArticulosRecientes {
     /** Indica la cantidad de articulos que consultara desde la base de datos */
@@ -74,6 +75,4 @@ async function ArticulosRecientes({ maxArticulos }: PropsArticulosRecientes) {
     )
 }
 
-export {
-    ArticulosRecientes
-}
+export default ArticulosRecientes
