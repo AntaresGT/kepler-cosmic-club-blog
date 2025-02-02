@@ -9,12 +9,9 @@ const aaxios = axios.create({
     baseURL: process.env.BASE_URL,
 })
 
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0'
+
 aaxios.interceptors.request.use((config) => {
-
-    config.headers['Cache-Control'] = 'no-store'
-    config.headers['Pragma'] = 'no-cache'
-    config.headers['Expires'] = '0'
-
     return config
 })
 
