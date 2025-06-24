@@ -87,7 +87,7 @@ async function Articulo({
 }: {
     params: { id: string }
 }) {
-    const { id } = params
+    const { id } = await params
     const articulo = await consultar_datos_articulo(id as string)
     return (
         <>
