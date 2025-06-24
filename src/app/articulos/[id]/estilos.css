@@ -17,6 +17,27 @@
   border-radius: 4px;
 }
 
+.contenido-blog h1 {
+  color: #63b3ed; /* Título principal en azul claro */
+  font-size: 2rem; /* Tamaño de fuente grande */
+  margin-bottom: 1rem;
+}
+
+.contenido-blog h2 {
+  color: #63b3ed; /* Subtítulo en azul claro */
+  font-size: 1.5rem; /* Tamaño de fuente mediano */
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.contenido-blog h3 {
+  color: #63b3ed; /* Sub-subtítulo en azul claro */
+  font-size: 1.25rem; /* Tamaño de fuente más pequeño */
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+
 /* Inline code */
 .contenido-blog p code {
   padding: 0.2rem 0.4rem;
