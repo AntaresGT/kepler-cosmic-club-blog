@@ -121,7 +121,7 @@ async function consultar_articulos(
 async function Articulos({
     searchParams
 }: {
-    searchParams?: { [key: string]: string | string[] | undefined }
+    searchParams?: Promise<{ [key: string]: string | string[] | undefined }> | undefined
 }) {
     const { tag, pagina, busqueda } = await searchParams ?? {}
     const articulos = await consultar_articulos(10, tag as string, pagina as string, busqueda as string)

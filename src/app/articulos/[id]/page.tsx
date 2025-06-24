@@ -85,7 +85,7 @@ export async function generateMetadata(
 async function Articulo({
     params
 }: {
-    params: { id: string }
+    params: Promise<{ id: string }>
 }) {
     const { id } = await params
     const articulo = await consultar_datos_articulo(id as string)
